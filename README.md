@@ -7,7 +7,7 @@ The purpose of this project is to provide a way to understand the details of Pro
 
 When you run the test as instructed below, you will get some out put that take the following JSON object...
 
-```json
+```
 {
   name: 'Big Bob Smith',
   age: 30,
@@ -102,8 +102,6 @@ The test output below
 01010101 | 55
 01010011 | 53
 ```
-
-g
 
 
 
