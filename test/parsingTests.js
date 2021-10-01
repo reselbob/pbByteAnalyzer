@@ -19,31 +19,32 @@ describe('Parsing Tests', () => {
         }
          */
         const user = {
-            name: 'Big Bob Smith',
+            first_name: 'Bob',
+            last_name: 'Smith',
             age: 30,
-            email: 'bigbob@example.com',
+            email: 'bob.smith@example.com',
             country: 'US'
         };
         console.log(`----JSON Object----`);
         console.log(user);
-        console.log('\n\n')
+        console.log('\n')
 
         //serialize the message, user
-        const dirPath = path.join(__dirname, '/user.proto');
+        const dirPath = path.join(process.cwd(), '/protos/user.proto');
         const root = await protobuf.load(dirPath);
         const User = root.lookupType('userpackage.User');
         //dump the serialization to a byte array
         const buf = User.encode(user).finish();
         console.log(`----ProtoBuf encoding in hex----`);
         console.log(buf);
-
+        console.log(`\n`);
         // Convert the byte array to binary output, a bunch of zeros and ones
         const paddedBin = BigInt('0x' + buf.toString('hex')).toString(2).padStart(buf.length * 8, '0')
 
         //  get a string of the binary output that we'll use for parsing purposes
         const str = paddedBin.toString();
         console.log(`----ProtoBuf encoding in binary----`);
-        console.log(`${str}\n\n`);
+        console.log(`${str}\n`);
 
         // Create output that separates the binary string into
         // 8 character groups ...
