@@ -1,6 +1,8 @@
 # pbByteAnalyzer
 A project that demonstrates how to analyze byte arrays that describe messages encoded in the Protocol Buffers format
 
+![UNDER CONSTRUCTION](https://toppng.com/uploads/thumbnail/under-construction-sign-11532978241z3ajcgelg4.png)
+
 # Purpose
 
 The purpose of this project is to provide a way to understand the details of Protocol Buffers encoding and decoding logic.
