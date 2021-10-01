@@ -1,0 +1,31 @@
+{
+  "name": "pbbyteanalyzer",
+  "version": "1.0.0",
+  "description": "A project that demonstrates how to analyze byte arrays that describe messages encoded in the Protocol Buffers format",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/parsingTests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reselbob/pbByteAnalyzer.git"
+  },
+  "keywords": [
+    "Protocol",
+    "Buffers"
+  ],
+  "author": "Bob Reselman <reselbob@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reselbob/pbByteAnalyzer/issues"
+  },
+  "homepage": "https://github.com/reselbob/pbByteAnalyzer#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3"
+  },
+  "dependencies": {
+    "baseconvert": "^1.0.0",
+    "protobufjs": "^6.11.2"
+  }
+}
