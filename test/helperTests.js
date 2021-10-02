@@ -46,5 +46,13 @@ describe('Helper Tests', () => {
         console.log(analysis);
     })
 
+    it('Can get simple user', async () => {
+
+        const user = helper.getSimpleUserSync();
+        expect(user).to.be.a('object');
+        expect(user.first_name).to.equal('Bob');
+    })
+
+
 
 });
