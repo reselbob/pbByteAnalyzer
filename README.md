@@ -11,9 +11,11 @@ When you run the test as instructed below, you will get some out put that take t
 
 ```
 {
-  name: 'Big Bob Smith',
+  first_name: 'Bob',
+  last_name: 'Smith',
   age: 30,
-  email: 'bigbob@example.com',
+  followers: 500,
+  email: 'bob.smith@example.com',
   country: 'US'
 }
 ```
@@ -23,16 +25,20 @@ When you run the test as instructed below, you will get some out put that take t
 The Protocol Buffers message format the describes the JSON object is
 
 ```protobuf
+package userpackage;
+syntax = "proto3";
+
 message User {
   string first_name = 1;
   string last_name = 2;
   int32 age = 3;
-  string email = 4;
+  int32 followers = 4;
+  string email = 5;
   string country = 33;
 }
 ```
 
-The test output below
+The test output below shows some encoding and analysis behavior.
 
 # Installation
 
@@ -50,22 +56,26 @@ The test output below
   first_name: 'Bob',
   last_name: 'Smith',
   age: 30,
+  followers: 500,
   email: 'bob.smith@example.com',
   country: 'US'
 }
 
 
 ----ProtoBuf encoding in hex----
-<Buffer 18 1e 22 15 62 6f 62 2e 73 6d 69 74 68 40 65 78 61 6d 70 6c 65 2e 63 6f 6d 8a 02 02 55 53>
+<Buffer 18 1e 20 f4 03 2a 15 62 6f 62 2e 73 6d 69 74 68 40 65 78 61 6d 70 6c 65 2e 63 6f 6d 8a 02 02 55 53>
 
 
 ----ProtoBuf encoding in binary----
-000110000001111000100010000101010110001001101111011000100010111001110011011011010110100101110100011010000100000001100101011110000110000101101101011100000110110001100101001011100110001101101111011011011000101000000010000000100101010101010011
+000110000001111000100000111101000000001100101010000101010110001001101111011000100010111001110011011011010110100101110100011010000100000001100101011110000110000101101101011100000110110001100101001011100110001101101111011011011000101000000010000000100101010101010011
 
 ----ProtoBuf encoding in hex and binary----
 00011000 | 18
 00011110 | 1e
-00100010 | 22
+00100000 | 20
+11110100 | f4
+00000011 | 3
+00101010 | 2a
 00010101 | 15
 01100010 | 62
 01101111 | 6f
@@ -93,6 +103,7 @@ The test output below
 00000010 | 2
 01010101 | 55
 01010011 | 53
+
 ```
 
 

@@ -5,6 +5,7 @@ message User {
   string first_name = 1;
   string last_name = 2;
   int32 age = 3;
-  string email = 4;
+  int32 followers = 4;
+  string email = 5;
   string country = 33;
 }
