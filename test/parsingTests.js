@@ -9,22 +9,12 @@ const baseConvert = require('baseconvert');
 
 const protobuf = require("protobufjs");
 
+const helper = require('../helpers/analysisHelper');
+
 describe('Parsing Tests', () => {
 
     it('ProtoBuf encoding test', async () => {
-        /*
-        const user = {
-            name: 'Bob',
-            age: 30
-        }
-         */
-        const user = {
-            first_name: 'Bob',
-            last_name: 'Smith',
-            age: 30,
-            email: 'bob.smith@example.com',
-            country: 'US'
-        };
+        const user = helper.getSimpleUserSync();
         console.log(`----JSON Object----`);
         console.log(user);
         console.log('\n')
