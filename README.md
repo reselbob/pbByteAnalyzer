@@ -9,7 +9,7 @@ The purpose of this project is to provide a way to understand the details of Pro
 
 When you run the test as instructed below, you will get some out put that take the following JSON object...
 
-```json
+```
 {
   first_name: 'Bob',
   last_name: 'Smith',
