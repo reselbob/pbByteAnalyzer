@@ -30,7 +30,7 @@ const messageJSON = getRandomUser();
 const protoPath = path.join(process.cwd(), '/protos/user.proto');
 const protoMessage = 'userpackage.User';
 
-describe('Helper Tests', () => {
+describe('User Tests', () => {
     it('Can get bytes using helper test', async () => {
         const buf = await helper.getEncodedBytes(messageJSON, protoPath, protoMessage)
         expect(buf).to.be.instanceof(Buffer)

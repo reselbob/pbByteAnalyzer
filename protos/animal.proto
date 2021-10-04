@@ -1,0 +1,20 @@
+package animalpackage;
+syntax = "proto3";
+
+service AnimalCatalog {
+  // Get an animal
+  rpc GetAnimal (AnimalRequest) returns (Animal) {}
+}
+
+// defines a request for an animal
+message AnimalRequest {
+  int32 id = 1;
+}
+
+// defines a animal
+message Animal {
+  int32 id = 1;
+  string species = 2;
+  string breed = 3;
+  int32 legs = 4;
+}
