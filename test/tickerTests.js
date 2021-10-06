@@ -19,9 +19,9 @@ const google = {
 
 describe('Ticker Tests', () => {
     it('Can encode ticker test', async () => {
-        const displayOptions = {showMessageJSON: true, showBytes: true}
+        const displayOptions = {showMessageJSON: true, showBytes: true, asJSON: true}
         const analysis = await helper.getEncodedBitsBytesAnalysis(google, protoPath, protoMessage,displayOptions);
-        expect(analysis).to.be.a('string');
+        expect(analysis).to.be.a('object');
         console.log(analysis)
     })
 })

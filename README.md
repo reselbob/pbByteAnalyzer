@@ -11,8 +11,8 @@ When you run the test as instructed below, you will get some out put that take t
 
 ```
 {
-  first_name: 'Bob',
-  last_name: 'Smith',
+  firstName: 'Bob',
+  lastName: 'Smith',
   age: 30,
   followers: 500,
   email: 'bob.smith@example.com',
@@ -29,8 +29,8 @@ package userpackage;
 syntax = "proto3";
 
 message User {
-  string first_name = 1;
-  string last_name = 2;
+  string firstName = 1;
+  string lastName = 2;
   int32 age = 3;
   int32 followers = 4;
   string email = 5;
@@ -53,8 +53,8 @@ The test output below shows some encoding and analysis behavior.
 ```
 ----JSON Object----
 {
-  first_name: 'Bob',
-  last_name: 'Smith',
+  firstName: 'Bob',
+  lastName: 'Smith',
   age: 30,
   followers: 500,
   email: 'bob.smith@example.com',

@@ -10,15 +10,15 @@ const helper = require('../helpers/analysisHelper');
 
 const getRandomUser = () => {
 
-    const first_name = faker.name.firstName();
-    const last_name = faker.name.lastName();
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
     const age = faker.datatype.number({'min': 10, 'max': 50});
     const followers = faker.datatype.number({'min': 500, 'max': 2000});
-    const email = `${first_name}.${last_name}@${faker.internet.domainName()}`;
+    const email = `${firstName}.${lastName}@${faker.internet.domainName()}`;
     const country = faker.address.countryCode();
     return {
-        first_name,
-        last_name,
+        firstName,
+        lastName,
         age,
         followers,
         email,

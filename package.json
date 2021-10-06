@@ -26,7 +26,7 @@
     "mocha": "^9.0.3"
   },
   "dependencies": {
-    "baseconvert": "^1.0.0",
-    "protobufjs": "^6.11.2"
+    "@apollo/protobufjs": "~1.2.2",
+    "baseconvert": "^1.0.0"
   }
 }

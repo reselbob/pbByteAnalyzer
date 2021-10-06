@@ -1,4 +1,4 @@
-const protobuf = require("protobufjs");
+const protobuf = require("@apollo/protobufjs");
 const baseConvert = require('baseconvert');
 
 const bufferToHex =  (buffer) => {
@@ -8,24 +8,25 @@ const bufferToHex =  (buffer) => {
 }
 /**
  * The purpose of this method is to return an simple, non-random user. Static, never changes.
- * @returns {{country: string, last_name: string, first_name: string, age: number, email: string}}
+ * @returns {{country: string, lastName: string, firstName: string, age: number, email: string}}
  */
 const getSimpleUserSync = ()=> {
 
-    const first_name = 'Bob';
-    const last_name = 'Smith';
+    const firstName = 'Bob';
+    const lastName = 'Smith';
     const age = 30;
     const followers = 500;
     const email = 'bob.smith@example.com';
     const country = 'US';
-    return {
-        first_name,
-        last_name,
+    const usr = {
+        firstName,
+        lastName,
         age,
         followers,
         email,
         country
-    };
+    }
+    return usr;
 }
 
 
@@ -43,7 +44,12 @@ const getSimpleUserSync = ()=> {
 const getEncodedBytes =  async (messageJSON, protoPath, protoMessage) => {
     const root = await protobuf.load(protoPath);
     const obj = root.lookupType(protoMessage);
-    return obj.encode(messageJSON).finish();
+    const errMsg = obj.verify(messageJSON);
+    if (errMsg) throw Error(errMsg);
+    const message = obj.create(messageJSON);
+    const encode = obj.encode(message).finish();
+    const decode = obj.decode(encode)
+    return encode
 }
 
 /**
