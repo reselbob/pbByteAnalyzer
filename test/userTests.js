@@ -58,10 +58,11 @@ describe('User Tests', () => {
 
 
     it('Can get simple user  output', async () => {
-        const displayOptions = {showMessageJSON: true, showBytes: true}
+        const displayOptions = {showMessageJSON: true, showBytes: true, asJSON: true}
         const user = helper.getSimpleUserSync();
         const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoPath, protoMessage, displayOptions)
-        expect(analysis).to.be.a('string');
+        expect(analysis).to.be.a('object');
+        const a = await helper.getEncodedBits(mes)
         console.log(analysis);
     })
 
