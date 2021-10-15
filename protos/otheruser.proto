@@ -1,0 +1,11 @@
+package otheruserpackage;
+syntax = "proto3";
+
+message OtherUser {
+    string firstName = 1;
+    string lastName = 2;
+    int32 age = 3;
+    fixed32 followers = 4;
+    string email = 5;
+    string country = 33;
+}

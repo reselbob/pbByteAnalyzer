@@ -8,6 +8,25 @@ const faker = require('faker');
 
 const helper = require('../helpers/analysisHelper');
 
+const getOtherUserSync = ()=> {
+
+    const firstName = 'Bob';
+    const lastName = 'Smith';
+    const age = 30;
+    const followers = 500;
+    const email = 'bob.smith@example.com';
+    const country = 'US';
+    const usr = {
+        firstName,
+        lastName,
+        age,
+        followers,
+        email,
+        country
+    }
+    return usr;
+}
+
 const getRandomUser = () => {
 
     const firstName = faker.name.firstName();
@@ -28,7 +47,9 @@ const getRandomUser = () => {
 
 const messageJSON = getRandomUser();
 const protoPath = path.join(process.cwd(), '/protos/user.proto');
+const protoOtherPath = path.join(process.cwd(), '/protos/otheruser.proto');
 const protoMessage = 'userpackage.User';
+const protoOtherMessage = 'otheruserpackage.OtherUser';
 
 describe('User Tests', () => {
     it('Can get bytes using helper test', async () => {
@@ -63,6 +84,14 @@ describe('User Tests', () => {
         const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoPath, protoMessage, displayOptions)
         expect(analysis).to.be.a('object');
         const a = await helper.getEncodedBits(mes)
+        console.log(analysis);
+    })
+
+    it('Can get other user  output', async () => {
+        const displayOptions = {showMessageJSON: true, showBytes: true}
+        const user = getOtherUserSync();
+        const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoOtherPath, protoOtherMessage, displayOptions)
+        expect(analysis).to.be.a('string');
         console.log(analysis);
     })
 
