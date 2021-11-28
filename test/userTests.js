@@ -70,30 +70,14 @@ describe('User Tests', () => {
     })
 
     it('Can get bits bytes analysis as object test', async () => {
+        const messageDef = 'userpackage.SimpleUser';
         const displayOptions = {showMessageJSON: true, showBytes: true, asJSON: true}
         const user = helper.getSimpleUserSync();
-        const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoPath, protoMessage, displayOptions)
+        const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoPath, messageDef, displayOptions)
         expect(analysis).to.be.an('object');
         console.log(analysis);
     })
 
-
-    it('Can get simple user  output', async () => {
-        const displayOptions = {showMessageJSON: true, showBytes: true, asJSON: true}
-        const user = helper.getSimpleUserSync();
-        const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoPath, protoMessage, displayOptions)
-        expect(analysis).to.be.a('object');
-        const a = await helper.getEncodedBits(mes)
-        console.log(analysis);
-    })
-
-    it('Can get other user  output', async () => {
-        const displayOptions = {showMessageJSON: true, showBytes: true}
-        const user = getOtherUserSync();
-        const analysis = await helper.getEncodedBitsBytesAnalysis(user, protoOtherPath, protoOtherMessage, displayOptions)
-        expect(analysis).to.be.a('string');
-        console.log(analysis);
-    })
 
 
 });

@@ -2,10 +2,17 @@ package userpackage;
 syntax = "proto3";
 
 message User {
-  string firstName = 1;
-  string lastName = 2;
-  int32 age = 3;
-  int32 followers = 4;
-  string email = 5;
-  string country = 33;
+  required string firstName = 1;
+  required string lastName = 2;
+  required int32 age = 3;
+  required int32 followers = 4;
+  required string email = 5;
+  required string country = 33;
+}
+
+message SimpleUser {
+  required string firstName = 1;
+  required string lastName = 2;
+  required fixed32 age = 3;
+  required int32 followers = 33;
 }

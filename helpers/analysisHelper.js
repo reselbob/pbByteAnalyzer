@@ -8,7 +8,7 @@ const bufferToHex =  (buffer) => {
 }
 /**
  * The purpose of this method is to return an simple, non-random user. Static, never changes.
- * @returns {{country: string, lastName: string, firstName: string, age: number, email: string}}
+ * @returns {{lastName: string, firstName: string, age: number, followers: number}}
  */
 const getSimpleUserSync = ()=> {
 
@@ -16,15 +16,11 @@ const getSimpleUserSync = ()=> {
     const lastName = 'Smith';
     const age = 30;
     const followers = 500;
-    const email = 'bob.smith@example.com';
-    const country = 'US';
     const usr = {
         firstName,
         lastName,
         age,
-        followers,
-        email,
-        country
+        followers
     }
     return usr;
 }
